@@ -31,6 +31,13 @@ if ( ! function_exists( 'et_load_core_options' ) ) {
                    	"type" => "checkbox2",
                    	"std" => "on",
                    	"desc" =>esc_html__( "Here you can choose to display the Youtube Icon. ", $themename ) );
+
+				$newOptions[] = array( 
+					"name" =>esc_html__( "Show Instagram Icon", $themename ),
+                   	"id" => $shortname."_show_instagram_icon",
+                   	"type" => "checkbox2",
+                   	"std" => "on",
+                   	"desc" =>esc_html__( "Here you can choose to display the Instagram Icon. ", $themename ) );
 			}
 
 			if (isset($optionArray['id']) && $optionArray['id'] == 'divi_google_url') {
@@ -48,6 +55,13 @@ if ( ! function_exists( 'et_load_core_options' ) ) {
 		                   "type" => "text",
 		                   "validation_type" => "url",
 						   "desc" =>esc_html__( "Enter the URL of your Youtube Channel. ", $themename ) );
+
+				$newOptions[] = array( "name" =>esc_html__( "Instagram Profile Url", $themename ),
+		                   "id" => $shortname."_instagram_url",
+		                   "std" => "#",
+		                   "type" => "text",
+		                   "validation_type" => "url",
+						   "desc" =>esc_html__( "Enter the URL of your Instagram Profile. ", $themename ) );
 			}
 		}
 
