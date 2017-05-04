@@ -4,6 +4,17 @@ function theme_enqueue_styles() {
     wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
 
 }
+
+// Remove version numbers from resources in WP
+function _remove_script_version($src)
+{
+    $parts = explode('?', $src);
+    return $parts[0];
+}
+add_filter('script_loader_src', '_remove_script_version', 15, 1);
+add_filter('style_loader_src', '_remove_script_version', 15, 1);
+
+
 /*
 *	Load social icons for Youtube and Linked In
 */
@@ -18,21 +29,21 @@ if ( ! function_exists( 'et_load_core_options' ) ) {
 			$newOptions[] = $optionArray;
 			if (isset($optionArray['id']) && $optionArray['id'] == 'divi_show_google_icon') {
 
-				$newOptions[] = array( 
+				$newOptions[] = array(
 					"name" =>esc_html__( "Show Linked In Icon", $themename ),
                    	"id" => $shortname."_show_linkedin_icon",
                    	"type" => "checkbox2",
                    	"std" => "on",
                    	"desc" =>esc_html__( "Here you can choose to display the LINKED IN Icon. ", $themename ) );
 
-				$newOptions[] = array( 
+				$newOptions[] = array(
 					"name" =>esc_html__( "Show Youtube Icon", $themename ),
                    	"id" => $shortname."_show_youtube_icon",
                    	"type" => "checkbox2",
                    	"std" => "on",
                    	"desc" =>esc_html__( "Here you can choose to display the Youtube Icon. ", $themename ) );
 
-				$newOptions[] = array( 
+				$newOptions[] = array(
 					"name" =>esc_html__( "Show Instagram Icon", $themename ),
                    	"id" => $shortname."_show_instagram_icon",
                    	"type" => "checkbox2",
@@ -66,7 +77,7 @@ if ( ! function_exists( 'et_load_core_options' ) ) {
 		}
 
 		$options = $newOptions;
-		
+
 	}
 
 }
