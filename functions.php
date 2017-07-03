@@ -22,7 +22,8 @@ if ( ! function_exists( 'et_load_core_options' ) ) {
 
 	function et_load_core_options() {
 
-		global $shortname, $$themename;
+		global $shortname, $themename $options;
+		
 		require_once get_template_directory() . esc_attr( "/options_{$shortname}.php" );
 		$newOptions = [];
 		foreach ($options as $i => $optionArray) {
